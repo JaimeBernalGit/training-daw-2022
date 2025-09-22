@@ -2,7 +2,7 @@ function printMultiplicationTables() {
     for (let i = 1; i<11; i++) {
         let tabla = i
         for (let e = 1; e<11; e++){
-            result = result + "  " + e*i
+            tabla = tabla + "  " + e*i
         }
         console.log(tabla)
     }
