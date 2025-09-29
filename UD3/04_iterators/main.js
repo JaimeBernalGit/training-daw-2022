@@ -29,22 +29,42 @@ var pilots = [
   }
 ];
 
-function iterateSimple() {
+function iterateSimple(array) {
+  for (let i = 0; i < array.length; i++) {
+    console.log(array[i])
+  }
 }
-function iterateForEach() {
+function iterateForEach(array) {
+  array.forEach(element => {
+      console.log(element)
+  });
 }
 function mapIds() {
+  let ids = pilots.map(pilot => pilot.id)
+  console.log(ids)
+  return ids
 }
 function rebels() {
+  let rebeldes = pilots.filter(pilot => pilot.faction === "Rebels")
+  console.log(rebeldes)
+  return rebeldes
 }
 function totalFaction(faction) {
+  let result = pilots.filter(pilot => pilot.faction === faction)
+  console.log(result.length)
+  return result.length
 }
 function avgYears(faction) {
+  let result = pilots.filter(pilot => pilot.faction === faction)
+  let reducEdad = result.reduce((accumulator, currentValue) => accumulator.years + currentValue.years)
+  let media = reducEdad/result.length
+  console.log(media)
+  return media
 }
 
 // use console.log
-iterateSimple()
-iterateForEach()
+iterateSimple(pilots)
+iterateForEach(pilots)
 try {
   assert.deepStrictEqual(mapIds(), [2,8,40,66])
   assert.deepStrictEqual(rebels(), [pilots[0], pilots[3]])
